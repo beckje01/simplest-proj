@@ -1,4 +1,4 @@
-# Vert.x 3.0 Simplest Maven project
+# Vert.x 3.0 Simplest Maven/Gradle project
 
 This project shows a very simple HelloWorld Vert.x 3.0 project using both Maven and Gradle.
 
