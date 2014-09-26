@@ -1,8 +1,7 @@
 package io.vertx.example;
 
 import io.vertx.core.AbstractVerticle;
-
-import static io.vertx.core.http.HttpServerOptions.*;
+import io.vertx.core.http.HttpServerOptions;
 
 
 /**
@@ -12,7 +11,7 @@ public class HelloWorldServer extends AbstractVerticle {
 
   @Override
   public void start() {
-    vertx.createHttpServer(options().setPort(8080)).requestHandler(req -> req.response().end("Hello World!")).listen();
+    vertx.createHttpServer(new HttpServerOptions().setPort(8080)).requestHandler(req -> req.response().end("Hello World!")).listen();
   }
 
 }
