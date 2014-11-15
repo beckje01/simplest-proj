@@ -2,7 +2,7 @@
 
 This project shows a very simple HelloWorld Vert.x 3.0 project using both Maven and Gradle.
 
-There is a single verticle called `HelloWorldServer` which always returns "Hello World!"".
+In this project Vert.x is used embedded. There is a single verticle called `HelloWorldServer` which always returns "Hello World!"".
 
 ## Maven users
 

@@ -1,16 +1,16 @@
 package io.vertx.example;
 
-import io.vertx.core.AbstractVerticle;
+import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpServerOptions;
 
 
 /**
  * @author <a href="http://tfox.org">Tim Fox</a>
  */
-public class HelloWorldServer extends AbstractVerticle {
+public class HelloWorldServer {
 
-  @Override
-  public void start() {
+  public static void main(String[] args) {
+    Vertx vertx = Vertx.vertx();
     vertx.createHttpServer(new HttpServerOptions().setPort(8080)).requestHandler(req -> req.response().end("Hello World!")).listen();
   }
 
