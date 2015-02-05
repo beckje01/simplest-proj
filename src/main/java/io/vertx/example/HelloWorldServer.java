@@ -10,8 +10,7 @@ import io.vertx.core.http.HttpServerOptions;
 public class HelloWorldServer {
 
   public static void main(String[] args) {
-    Vertx vertx = Vertx.vertx();
-    vertx.createHttpServer(new HttpServerOptions().setPort(8080)).requestHandler(req -> req.response().end("Hello World!")).listen();
+    Vertx.vertx().createHttpServer().requestHandler(req -> req.response().end("Hello World!")).listen(8080);
   }
 
 }
