@@ -1,10 +1,11 @@
 buildscript {
     repositories { jcenter() }
     dependencies {
-        classpath 'com.github.jengelman.gradle.plugins:shadow:1.1.1'
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.1'
     }
 }
 
+apply plugin: 'application'
 apply plugin: 'java'
 apply plugin: 'com.github.johnrengelman.shadow'
 
@@ -25,18 +26,18 @@ repositories {
 }
 
 dependencies {
-    compile 'io.vertx:vertx-core:3.0.0-dev_preview1'
+    compile 'io.vertx:vertx-core:3.0.0-SNAPSHOT'
 }
+
+mainClassName='io.vertx.example.HelloWorldServer'
 
 shadowJar {
     classifier = 'fat'
-    manifest {
-        attributes 'Main-Class': 'io.vertx.core.Starter'
-        attributes 'Main-Verticle': 'java:io.vertx.example.HelloWorldServer'
-    }
+
     mergeServiceFiles {
         include 'META-INF/services/io.vertx.core.spi.VerticleFactory'
     }
+
     dependencies {
         exclude(dependency('io.vertx:codegen'))
         exclude(dependency('junit:junit'))
@@ -47,5 +48,5 @@ shadowJar {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.0'
+    gradleVersion = '2.3'
 }
